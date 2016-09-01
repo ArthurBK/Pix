@@ -39,7 +39,7 @@
         headers: {
           "Content-Type": "application/json",
           "X-User-Email": "arthurbonnecarrere@example.com",
-          "X-User-Token": "y4msWpSRPovE4hxH83tZ",
+          "Authorization": "y4msWpSRPovE4hxH83tZ",
         },
         body: JSON.stringify(
           { application:

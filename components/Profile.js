@@ -6,7 +6,7 @@ import {Actions} from "react-native-router-flux";
 import CookieManager from 'react-native-cookies';
 import Icon from 'react-native-vector-icons/FontAwesome'
 
-var REQUEST_URL = 'http://localhost:3000/api/v1/influencers/31';
+var REQUEST_URL = 'http://localhost:3000/api/v1/influencers/';
 //need to change 31 dynamically
 var { width, height } = Dimensions.get('window');
 
