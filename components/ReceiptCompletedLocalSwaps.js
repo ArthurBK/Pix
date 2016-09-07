@@ -74,7 +74,7 @@ export default class extends  Component {
           <View style={styles.leftContainer}>
             <View style={styles.splitLeftContainer}>
               <View style={styles.iconCamera}>
-                <Icon name="camera" size={15} color='#EE6136'/>
+                <Icon name="camera" size={15} color='#2980B9'/>
               </View>
               <View>
                 <Text style={styles.productText}>
@@ -169,7 +169,7 @@ export default class extends  Component {
       // fontFamily: 'PingFang TC',
       // fontWeight: '800',
       fontSize: 18,
-      color: '#EE6136',
+      color: '#2980B9',
       fontStyle: 'italic'
     },
     productText: {

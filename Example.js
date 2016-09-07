@@ -23,7 +23,7 @@ import Button from "react-native-button";
 class TabIcon extends React.Component {
   render(){
     return (
-      <Text style={{color: this.props.selected ? "#EE6136" :"#8D8D8D"}}>{this.props.title}</Text>
+      <Text style={{color: this.props.selected ? "#2980B9" :"#8D8D8D"}}>{this.props.title}</Text>
     );
   }
 }

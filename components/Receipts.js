@@ -16,8 +16,8 @@ class App extends Component {
       <ScrollableTabView
         style={styles.tabBar}
         tabBarTextStyle={styles.tabBarTextStyle}
-        tabBarUnderlineColor='#EE6136'
-        tabBarActiveTextColor='#EE6136'
+        tabBarUnderlineColor='#2980B9'
+        tabBarActiveTextColor='#2980B9'
         tabBarInactiveTextColor='#606060'>
         <ReceiptConfirmedLocalSwaps tabLabel={'\uD83D\uDCF8'} />
         <ReceiptCompletedLocalSwaps tabLabel={'\u2705'} />

@@ -197,7 +197,7 @@ content: {
     flex: 1,
     // justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#EE6136",
+    backgroundColor: "#2980B9",
     height: 250,
     width: deviceWidth,
     paddingTop: 50,

@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
     left: 0,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: "#EE6136",
+    backgroundColor: "#2980B9",
   },
 
   textPage: {
@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
   //       textAlign:'center',
   //       height: 50,
   //       padding: 16,
-  //       backgroundColor: '#EE6136',
+  //       backgroundColor: '#2980B9',
   //       fontSize: 18,
   //       width: width - 20,
   //       color: "white",
@@ -170,7 +170,7 @@ const styles = StyleSheet.create({
   //     viewSeparator:{
   //       backgroundColor: 'transparent',
   //       borderTopWidth: 10,
-  //       borderTopColor: '#EE6136',
+  //       borderTopColor: '#2980B9',
   // paddingTop:30,
   //     },
 

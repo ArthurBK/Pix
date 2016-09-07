@@ -198,7 +198,7 @@ style={[styles.messageImageView, {opacity: this.state.myButtonOpacity}]}
       textAlign:'center',
       height: 50,
       padding: 16,
-      backgroundColor: '#EE6136',
+      backgroundColor: '#2980B9',
       fontSize: 18,
       width: width - 20,
       color: "white",
@@ -223,7 +223,7 @@ style={[styles.messageImageView, {opacity: this.state.myButtonOpacity}]}
       flex:1,
       justifyContent: 'center',
       alignItems: 'center',
-      backgroundColor:'#EE6136',
+      backgroundColor:'#2980B9',
       opacity: 0.8
     },
     boxImageHeaderText: {
@@ -263,7 +263,7 @@ style={[styles.messageImageView, {opacity: this.state.myButtonOpacity}]}
     productText: {
       fontFamily: 'PingFang TC',
       fontSize: 30,
-      color: '#EE6136',
+      color: '#2980B9',
     },
     descriptionText: {
       fontFamily: 'PingFang TC',
