@@ -261,16 +261,16 @@
               </View>
               <View style={styles.bottomContainer}>
                 <View style={styles.leftSideText}>
+                <Text style={styles.titleText}>
+                {campaign.title}
+                </Text>
                   <Text style={styles.productText}>
                     {campaign.product}
-                  </Text>
-                  <Text style={styles.titleText}>
-                    {campaign.title}
                   </Text>
                 </View>
                 <View >
                   <Text style={styles.followersText}>
-                    100 followers
+                    350 followers
                   </Text>
                 </View>
               </View>
@@ -340,10 +340,12 @@
       bottomContainer: {
         // flex: 1,
         flexDirection:'row',
-        // backgroundColor:'yellow',
+        backgroundColor:'white',
         width: width,
         height: height*(1/8),
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        borderBottomWidth: 1,
+        borderBottomColor: '#fbfbfb'
       },
       padding: {
         padding: 10,
@@ -355,21 +357,24 @@
       titleText: {
         fontFamily: 'PingFang TC',
         fontWeight: '800',
-        fontSize: 18,
-        color: '#606060',
+        fontSize: 26,
+        color: '#2980B9',
       },
       followersText: {
         fontFamily: 'PingFang TC',
         fontWeight: '800',
-        fontSize: 13,
+        fontSize: 14,
         color: '#2980B9',
         paddingRight: 10,
         paddingTop:10
       },
       productText: {
         fontFamily: 'PingFang TC',
-        fontSize: 15,
+        fontSize: 19,
         color: '#606060',
+        // paddingTop: 6,
+        // paddingLeft: 4
+
       },
       leftSideText: {
         paddingLeft: 10,

@@ -52,23 +52,23 @@ export default class extends Component {
   }
 
 
-
-  postinfo () {
-    fetch('http://localhost:3000/api/v1/applications/3', {
-      method: 'PATCH',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-        'X-User-Token': 'y4msWpSRPovE4hxH83tZ',
-      },
-      body: JSON.stringify(
-        { application: { status: 'Hello From RN'
-        }
-      })
-
-    })
-
-  }
+  //
+  // postinfo () {
+  //   fetch('http://localhost:3000/api/v1/applications/3', {
+  //     method: 'PATCH',
+  //     headers: {
+  //       'Accept': 'application/json',
+  //       'Content-Type': 'application/json',
+  //       'X-User-Token': 'y4msWpSRPovE4hxH83tZ',
+  //     },
+  //     body: JSON.stringify(
+  //       { application: { status: 'Hello From RN'
+  //       }
+  //     })
+  //
+  //   })
+  //
+  // }
 
   logout () {
     CookieManager.clearAll((err, res) => {
@@ -86,11 +86,7 @@ export default class extends Component {
       <ScrollView>
         <View style={styles.container}>
           <View style={styles.header}>
-            <View>
-              <Text style={styles.headerText}>
-                Account
-              </Text>
-            </View>
+
             <View>
               <Image
               source={{uri: this.state.dataSource.photo}}
@@ -106,38 +102,32 @@ export default class extends Component {
           </View>
           <View style={styles.profileInfo}>
           <View style={styles.content}>
-          <Button style={styles.profileButton} onPress={Actions.register} >
+          <Button style={styles.profileButton} onPress={() => Actions.profileInfo({textLabel: 'Mon adresse email', attribute: 'email'})} >
              <Text style={styles.buttonText}>Email</Text>
              <Text style={styles.buttonRightClick}>></Text>
              </Button>
           </View>
           <View style={styles.content}>
-          <Button style={styles.profileButton} onPress={Actions.register} >
-             <Text style={styles.buttonText}>Addresses</Text>
+          <Button style={styles.profileButton} onPress={() => Actions.profileInfo({textLabel: 'Mon adresse', attribute: 'address'})} >
+             <Text style={styles.buttonText}>Adresse</Text>
              <Text style={styles.buttonRightClick}>></Text>
              </Button>
           </View>
           <View style={styles.content}>
-          <Button style={styles.profileButton} onPress={Actions.register} >
-             <Text style={styles.buttonText}>FAQS</Text>
+          <Button style={styles.profileButton} onPress={() => Actions.profileInfo({textLabel: 'Mon téléphone', attribute: 'phone_number'})} >
+             <Text style={styles.buttonText}>Numéro de téléphone</Text>
              <Text style={styles.buttonRightClick}>></Text>
              </Button>
           </View>
           <View style={styles.content}>
-          <Button style={styles.profileButton} onPress={Actions.register} >
-             <Text style={styles.buttonText}>Email</Text>
+          <Button style={styles.profileButton} onPress={Actions.profileInfo} >
+             <Text style={styles.buttonText}>Contact us</Text>
              <Text style={styles.buttonRightClick}>></Text>
              </Button>
           </View>
           <View style={styles.content}>
           <Button style={styles.profileButton} onPress={this.logout.bind(this)} >
-             <Text style={styles.buttonText}>LOGOUT</Text>
-             <Text style={styles.buttonRightClick}>></Text>
-             </Button>
-          </View>
-          <View style={styles.content}>
-          <Button style={styles.profileButton} onPress={this.postinfo} >
-             <Text style={styles.buttonText}>POST BUTTON(t)</Text>
+             <Text style={styles.buttonText}>Logout</Text>
              <Text style={styles.buttonRightClick}>></Text>
              </Button>
           </View>
@@ -203,15 +193,16 @@ content: {
     paddingTop: 50,
   },
   headerText: {
-    // fontFamily: 'PingFang TC',
+    paddingTop: 10,
+    fontFamily: 'PingFang TC',
     // fontWeight: '800',
-    // fontSize: 25,
-    // color: '#E7E7E7',
+    fontSize: 20,
+    color: '#001929',
     // paddingBottom: 20,
   },
   thumbnail: {
-    width: 70,
-    height: 70,
+    width: 140,
+    height: 140,
     backgroundColor: "#E2E2E2",
     borderRadius: 35,
   },

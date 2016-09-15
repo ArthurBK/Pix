@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "clamp": "^1.0.1",
-    "react": "^15.2.0",
+    "react": "~15.2.0",
     "react-native": "^0.30.0",
     "react-native-animatable": "^0.6.1",
     "react-native-button": "github:ide/react-native-button",

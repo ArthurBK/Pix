@@ -63,7 +63,8 @@ myButtonOpacity: new Animated.Value(0),
       ).start();
 
 // this.setState({myButtonOpacity: 0})
-  Clipboard.setString(this.props.campaign.title);
+
+  Clipboard.setString("@weflash_app, " + this.props.campaign.iger_account);
 
 
   this.timer = setTimeout(() => {
@@ -149,12 +150,12 @@ style={[styles.messageImageView, {opacity: this.state.myButtonOpacity}]}
                     Swapped:
                   </Text>
                 </View>
-                <View style={{width: width/2}}>
+                <View style={{width: width/2, paddingRight:20}}>
                   <Text style={styles.descriptionTextBold}>
                     Hashtags:
                   </Text>
                   <Text style={styles.descriptionText}>
-                    @picreward, @{this.props.campaign.title}
+                    @weflash_app, {this.props.campaign.iger_account}
                   </Text>
                 </View>
               </View>
@@ -224,12 +225,14 @@ style={[styles.messageImageView, {opacity: this.state.myButtonOpacity}]}
       justifyContent: 'center',
       alignItems: 'center',
       backgroundColor:'#2980B9',
-      opacity: 0.8
+      opacity: 0.8,
+      borderRadius: 10
+
     },
     boxImageHeaderText: {
       fontWeight: '400',
       fontSize: 20,
-      color: 'white'
+      color: 'white',
     },
     boxImageText: {
       color: 'white'

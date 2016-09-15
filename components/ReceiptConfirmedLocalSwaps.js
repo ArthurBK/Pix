@@ -76,8 +76,8 @@ export default class extends  Component {
               <View style={styles.iconCamera}>
                 <Icon name="camera" size={15} color='#2980B9'/>
               </View>
-              <View>
-                <Text style={styles.productText}>
+              <View style={styles.textContainer}>
+                <Text style={styles.productText} >
                   {campaign.product}
                 </Text>
                 <Text style={styles.followersText}>
@@ -126,7 +126,7 @@ export default class extends  Component {
       flexDirection: 'row',
       justifyContent: 'center',
       alignItems: 'center',
-      backgroundColor: 'white',
+      // backgroundColor: 'red',
       borderBottomColor:'#E2E2E2',
       borderBottomWidth: 0.5,
       borderTopColor:'#E2E2E2',
@@ -138,16 +138,17 @@ export default class extends  Component {
     thumbnail: {
       width: height/4,
       height: height/4,
-      backgroundColor: "#E2E2E2",
+      // backgroundColor: "blue",
       // borderRadius: 5,
     },
     listView: {
       marginBottom: 55,
+      // backgroundColor: 'blue'
     },
     welcome: {
       fontSize: 40,
       textAlign: 'center',
-      color: 'red',
+      // color: 'red',
       margin: 80,
     },
     leftContainer: {
@@ -155,10 +156,16 @@ export default class extends  Component {
       paddingTop: 20,
       paddingLeft: 20,
       // justifyContent: 'space-between',
-      // backgroundColor:'green',
-      height: height/4
+      backgroundColor:'white',
+      height: height/4,
+      // flexDirection: 'column',
+    // alignItems: 'center', //align items according to this parent (like setting self align on each item)
+    // justifyContent: 'center',
     },
-
+    textContainer:{
+      flexWrap: 'wrap',
+      flex: 1
+    },
     titleText: {
       fontFamily: 'PingFang TC',
       fontWeight: '800',
@@ -176,11 +183,15 @@ export default class extends  Component {
       fontFamily: 'PingFang TC',
       fontSize: 20,
       color: '#606060',
+      // flexWrap: 'wrap',
     },
     splitLeftContainer:{
       // backgroundColor: 'yellow',
       flex: 1,
-      flexDirection: 'row'
+      flexDirection: 'row',
+      // flexWrap: 'wrap',
+
+
     },
 iconCamera: {
 paddingTop: 8,

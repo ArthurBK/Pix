@@ -69,7 +69,7 @@ export default class ReactNativeLogin extends  Component {
       if (this.state.loggedIn) {
         return (
 <View>
-{Actions.tabbar()}
+{Actions.emailconfirmation()}
 </View>
         );
       }

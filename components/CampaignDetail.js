@@ -133,11 +133,11 @@
     Alert.alert( '\uD83D\uDE4C You need more influencers \uD83D\uDE4C', '\uD83D\uDE4C You need more influencers \uD83D\uDE4C',
     [ {text: 'Got it!'},])
   }
-  else if (this.state.dataSource.rowIdentities.find.length > 0)
-   {
-     Alert.alert( '\uD83D\uDCF8 A photo hasn\'t been posted yet \uD83D\uDCF8', 'Swaps again when a photo has been posted',
-     [ {text: 'Got it!'},])
-   }
+  // else if (this.state.dataSource.rowIdentities.find.length > 0)
+  //  {
+  //    Alert.alert( '\uD83D\uDCF8 A photo hasn\'t been posted yet \uD83D\uDCF8', 'Swaps again when a photo has been posted',
+  //    [ {text: 'Got it!'},])
+  //  }
   else if (d > 200)
   {
     Alert.alert( '\uD83D\uDCCD \u2796 \u2796 \u2796 \u2796 \uD83C\uDFC3',
@@ -345,8 +345,10 @@
         titleText: {
           fontFamily: 'PingFang TC',
           fontWeight: '900',
-          fontSize: 20,
-          color: '#606060',
+          fontSize: 34,
+          color: '#2980B9',
+          marginLeft: 10,
+          marginTop: 10,
         },
         followersText: {
           fontFamily: 'PingFang TC',
@@ -356,12 +358,14 @@
         },
         productText: {
           fontFamily: 'PingFang TC',
-          fontSize: 20,
-          color: '#2980B9',
+          fontSize: 24,
+          color: '#001929',
+          marginLeft: 10
         },
         descriptionText: {
           fontFamily: 'PingFang TC',
           fontSize: 20,
           color: '#606060',
+          marginLeft: 10
         },
       });
