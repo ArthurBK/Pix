@@ -5,6 +5,7 @@ var {
   StyleSheet,
   View,
   WebView,
+  Dimensions
   } = ReactNative;
 import {Actions} from "react-native-router-flux";
 // import {Tabbar} from "react-native-router-flux";
@@ -16,12 +17,9 @@ import CookieManager from 'react-native-cookies';
 const LOGIN_URL = "http://localhost:3000/users/auth/instagram";
 const HOME_URL = "http://localhost:3000/campaigns";
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#F5FCFF',
-  }
-});
+var { width, height } = Dimensions.get('window');
+
+
 
 export default class ReactNativeLogin extends  Component {
   constructor(props) {
@@ -76,6 +74,9 @@ export default class ReactNativeLogin extends  Component {
       else {
         return (
           <View style={[styles.container]}>
+          <View style={[styles.container]}>
+          </View>
+          <View style={[styles.containerIger]}>
             <WebView
               ref={'webview'}
               automaticallyAdjustContentInsets={false}
@@ -87,6 +88,9 @@ export default class ReactNativeLogin extends  Component {
               scalesPageToFit={true}
             />
           </View>
+          <View style={[styles.container]}>
+          </View>
+          </View>
         );
       }
     }
@@ -97,3 +101,20 @@ export default class ReactNativeLogin extends  Component {
     }
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    // alignItems: "center",
+    backgroundColor: '#F7F9FA',
+    // width: width / 1.5
+  },
+  containerIger: {
+  flex: 3,
+  justifyContent: "center",
+  // alignItems: "center",
+  backgroundColor: '#F7F9FA',
+  // width: width / 1.5
+},
+});

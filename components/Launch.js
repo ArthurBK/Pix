@@ -25,7 +25,7 @@ class Launch extends  Component {
   render(){
     return (
       <View {...this.props} style={styles.container}>
-    
+
       <View  style={styles.topContainer}>
         <Image
            source={require('./img/Logo_blue.png')}
@@ -38,8 +38,7 @@ class Launch extends  Component {
         </View>
 
 
-        <Button onPress={()=>Actions.error("Error message")}>Popup error</Button>
-        <Button onPress={Actions.tabbar}>Go to TabBar page</Button>
+    
 
 
       </View>

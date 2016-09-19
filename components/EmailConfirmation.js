@@ -25,17 +25,22 @@ export default class extends Component {
       fetch(REQUEST_URL)
       .then((response) => response.json())
       .then((responseData) => {
-        console.log(responseData.influencer.email);
+        if (responseData.influencer.email != responseData.influencer.username + "@example.com")
+        {
+          console.log(responseData.influencer.email);
+          console.log(responseData.influencer.username + "@example.com");
+          Actions.tabbar();
+        }
         //   console.log(responseData.influencer.email);
-        this.setState({
-          emailCheck: responseData.influencer.email,
-          username: responseData.influencer.username
+        // this.setState({
+          // emailCheck: responseData.influencer.email,
+          // username: responseData.influencer.username
         // })
       // if (true)
       // {
       //   console.log(responseData.influencer.username + "@example.com");
       // }
-        });
+        // });
         //  console.log(this.state.influencer);
       })
       //  console.log(this.state.influencer);
