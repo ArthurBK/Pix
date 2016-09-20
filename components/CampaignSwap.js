@@ -36,20 +36,18 @@
       postapplication()
       {
         // name = this.props.name
-        fetch('http://localhost:3000/api/v1/applications',
+        // http://www.localhost:3000/api/v1/applications
+        fetch('http://www.weflash.io/api/v1/applications',
         {
           method: 'POST',
           headers:
           {
             "Content-Type": "application/json",
-            "X-User-Email": "arthurbonnecarrere@example.com",
-            "Authorization": "y4msWpSRPovE4hxH83tZ",
           },
           body: JSON.stringify(
           { application:
             { campaign_id: this.props.id,
               status: 'Confirmed',
-              motivation: 'need to check validation ActiveREcords'
             }
           })
         });

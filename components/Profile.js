@@ -6,7 +6,7 @@ import {Actions} from "react-native-router-flux";
 import CookieManager from 'react-native-cookies';
 import Icon from 'react-native-vector-icons/FontAwesome'
 
-var REQUEST_URL = 'http://localhost:3000/api/v1/influencers/';
+var REQUEST_URL = 'http://www.weflash.io/api/v1/influencers/';
 //need to change 31 dynamically
 var { width, height } = Dimensions.get('window');
 
@@ -54,7 +54,7 @@ export default class extends Component {
 
   //
   // postinfo () {
-  //   fetch('http://localhost:3000/api/v1/applications/3', {
+  //   fetch('http://www.weflash.io/api/v1/applications/3', {
   //     method: 'PATCH',
   //     headers: {
   //       'Accept': 'application/json',
@@ -79,6 +79,7 @@ export default class extends Component {
     this.setState({
       loggedIn: false,
     });
+    Actions.launch();
   }
 
   render(){
@@ -115,7 +116,7 @@ export default class extends Component {
           </View>
           <View style={styles.content}>
           <Button style={styles.profileButton} onPress={() => Actions.profileInfo({textLabel: 'Mon téléphone', attribute: 'phone_number'})} >
-             <Text style={styles.buttonText}>Numéro de téléphone</Text>
+             <Text style={styles.buttonText}>Téléphone</Text>
              <Text style={styles.buttonRightClick}>></Text>
              </Button>
           </View>

@@ -38,7 +38,7 @@ class Launch extends  Component {
         </View>
 
 
-    
+
 
 
       </View>
@@ -74,6 +74,7 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     paddingRight: 10,
     borderRadius: 10,
+    // width: width - 40
   },
   lowerContainer: {
     flex:1,
@@ -81,11 +82,11 @@ const styles = StyleSheet.create({
   },
   loginTextButton: {
     color:'white',
-    fontSize: 20
+    fontSize: 18
   },
   thumbnail: {
     marginTop: 60,
-    width: width/3,
+    width: width/2,
     height: height*(3/8),
     resizeMode: 'contain'
     // backgroundColor: "#E2E2E2",

@@ -50,7 +50,7 @@ export default class extends Component {
     //   // name = this.props.campaign.name
     if (this.props.attribute == "phone_number")
     {
-      fetch('http://localhost:3000/api/v1/influencers', {
+      fetch('http://www.weflash.io/api/v1/influencers', {
         method: 'PATCH',
         headers: {
           "Content-Type": "application/json",
@@ -64,7 +64,7 @@ export default class extends Component {
       }
       if (this.props.attribute == "address")
       {
-        fetch('http://localhost:3000/api/v1/influencers', {
+        fetch('http://www.weflash.io/api/v1/influencers', {
           method: 'PATCH',
           headers: {
             "Content-Type": "application/json",
@@ -78,7 +78,7 @@ export default class extends Component {
         }
         if (this.props.attribute == "email")
         {
-          fetch('http://localhost:3000/api/v1/users', {
+          fetch('http://www.weflash.io/api/v1/users', {
             method: 'PATCH',
             headers: {
               "Content-Type": "application/json",

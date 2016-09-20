@@ -23,8 +23,8 @@
 
   var { width, height } = Dimensions.get('window');
 
-  var REQUEST_URL = 'http://localhost:3000/api/v1/campaigns/confirmed_local_campaigns';
-  var REQUEST_URL2 = 'http://localhost:3000/api/v1/influencers/';
+  var REQUEST_URL = 'http://www.weflash.io/api/v1/campaigns/confirmed_local_campaigns';
+  var REQUEST_URL2 = 'http://www.weflash.io/api/v1/influencers/';
 
 
 

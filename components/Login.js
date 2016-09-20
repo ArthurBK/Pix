@@ -14,8 +14,8 @@ import CookieManager from 'react-native-cookies';
 // import LoggedIn from './LoggedIn'
 
 // Change these to reflect
-const LOGIN_URL = "http://localhost:3000/users/auth/instagram";
-const HOME_URL = "http://localhost:3000/campaigns";
+const LOGIN_URL = "http://www.weflash.io/users/auth/instagram";
+const HOME_URL = "http://www.weflash.io/campaigns";
 
 var { width, height } = Dimensions.get('window');
 
@@ -58,6 +58,7 @@ export default class ReactNativeLogin extends  Component {
       this.setState({
         loggedIn: true,
       });
+      Actions.emailconfirmation();
     }
   }
 

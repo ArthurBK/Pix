@@ -4,7 +4,7 @@ import Button from 'react-native-button';
 import { Actions } from 'react-native-router-flux';
 import Emoji from "react-native-emoji";
 
-var REQUEST_URL = 'http://localhost:3000/api/v1/influencers/';
+var REQUEST_URL = 'http://www.weflash.io/api/v1/influencers/';
 
 export default class extends Component {
 
@@ -89,7 +89,7 @@ if (true)
 
 
         {
-          fetch('http://localhost:3000/api/v1/users', {
+          fetch('http://www.weflash.io/api/v1/users', {
             method: 'PATCH',
             headers: {
               "Content-Type": "application/json",
