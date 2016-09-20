@@ -14,8 +14,10 @@ import CookieManager from 'react-native-cookies';
 // import LoggedIn from './LoggedIn'
 
 // Change these to reflect
-const LOGIN_URL = "http://www.weflash.io/users/auth/instagram";
-const HOME_URL = "http://www.weflash.io/campaigns";
+const LOGIN_URL = "http://localhost:3000/users/auth/instagram";
+const HOME_URL = "http://localhost:3000/campaigns";
+const REQUEST_URL = 'http://localhost:3000/api/v1/influencers/';
+
 
 var { width, height } = Dimensions.get('window');
 
@@ -35,7 +37,7 @@ export default class ReactNativeLogin extends  Component {
       console.log(cookie);
       let isAuthenticated;
       // If it differs, change `cookie.remember_me` to whatever the name for your persistent cookie is!!!
-      if (cookie && cookie.indexOf('_PicReward') != -1) {
+      if (cookie && cookie.indexOf('_WeFlash') != -1) {
         isAuthenticated = true;
       }
       else {
@@ -54,11 +56,29 @@ export default class ReactNativeLogin extends  Component {
     // change this line.
 
     //I should add token here / retrieve it here and pass it to each view
+    console.log(navState);
+    console.log(navState.url);
     if (navState.url == HOME_URL) {
       this.setState({
         loggedIn: true,
       });
-      Actions.emailconfirmation();
+
+      fetch(REQUEST_URL)
+      .then((response) => response.json())
+      .then((responseData) => {
+        if (responseData.influencer.email != responseData.influencer.username + "@example.com")
+        {
+          // console.log(responseData.influencer.email);
+          // console.log(responseData.influencer.username + "@example.com");
+          Actions.tabbar();
+        }
+        else {
+          Actions.emailconfirmation();
+        }
+      }).catch((error) =>{console.log(error)});
+
+
+
     }
   }
 
@@ -68,7 +88,6 @@ export default class ReactNativeLogin extends  Component {
       if (this.state.loggedIn) {
         return (
 <View>
-{Actions.emailconfirmation()}
 </View>
         );
       }
@@ -87,6 +106,7 @@ export default class ReactNativeLogin extends  Component {
               onNavigationStateChange={this.onNavigationStateChange.bind(this)}
               startInLoadingState={true}
               scalesPageToFit={true}
+
             />
           </View>
           <View style={[styles.container]}>
@@ -108,14 +128,14 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     // alignItems: "center",
-    backgroundColor: '#F7F9FA',
+    backgroundColor: 'white',
     // width: width / 1.5
   },
   containerIger: {
   flex: 3,
   justifyContent: "center",
   // alignItems: "center",
-  backgroundColor: '#F7F9FA',
+  backgroundColor: 'white',
   // width: width / 1.5
 },
 });

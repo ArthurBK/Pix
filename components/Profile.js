@@ -6,7 +6,7 @@ import {Actions} from "react-native-router-flux";
 import CookieManager from 'react-native-cookies';
 import Icon from 'react-native-vector-icons/FontAwesome'
 
-var REQUEST_URL = 'http://www.weflash.io/api/v1/influencers/';
+var REQUEST_URL = 'http://localhost:3000/api/v1/influencers/';
 //need to change 31 dynamically
 var { width, height } = Dimensions.get('window');
 
@@ -54,7 +54,7 @@ export default class extends Component {
 
   //
   // postinfo () {
-  //   fetch('http://www.weflash.io/api/v1/applications/3', {
+  //   fetch('http://localhost:3000/api/v1/applications/3', {
   //     method: 'PATCH',
   //     headers: {
   //       'Accept': 'application/json',
@@ -72,8 +72,8 @@ export default class extends Component {
 
   logout () {
     CookieManager.clearAll((err, res) => {
-      // console.log(err);
-      // console.log(res);
+      console.log(err);
+      console.log(res);
     });
 
     this.setState({

@@ -16,7 +16,7 @@ import {Actions} from "react-native-router-flux";
 import MapView from 'react-native-maps';
 import Icon from 'react-native-vector-icons/FontAwesome'
 
-var REQUEST_URL = 'http://www.weflash.io/api/v1/campaigns/completed_local_campaigns';
+var REQUEST_URL = 'http://localhost:3000/api/v1/campaigns/completed_local_campaigns';
 var { width, height } = Dimensions.get('window');
 
 

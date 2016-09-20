@@ -6,8 +6,7 @@ import {Actions} from "react-native-router-flux";
 import ReceiptConfirmedLocalSwaps from './ReceiptConfirmedLocalSwaps'
 import ReceiptCompletedLocalSwaps from './ReceiptCompletedLocalSwaps'
 import Icon from 'react-native-vector-icons/FontAwesome'
-
-var ScrollableTabView = require('react-native-scrollable-tab-view');
+import ScrollableTabView from 'react-native-scrollable-tab-view'
 
 
 class App extends Component {

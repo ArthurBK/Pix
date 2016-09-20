@@ -16,7 +16,7 @@
 
     var { width, height } = Dimensions.get('window');
 
-    var REQUEST_URL = 'http://www.weflash.io/api/v1/campaigns/locals_campaigns';
+    var REQUEST_URL = 'http://localhost:3000/api/v1/campaigns/locals_campaigns';
 
     // var REQUEST_URL = 'http://picreward.herokuapp.com/api/v1/campaigns';
     const ASPECT_RATIO = width / height;
