@@ -13,6 +13,7 @@ class App extends Component {
   render() {
     return (
       <ScrollableTabView
+      locked={true}
         style={styles.tabBar}
         tabBarTextStyle={styles.tabBarTextStyle}
         tabBarUnderlineColor='#2980B9'
@@ -47,6 +48,7 @@ const styles = StyleSheet.create({
   },
   tabBar: {
     marginTop: 20,
+    // flex:1
   },
   tabBarTextStyle: {
     fontFamily: 'PingFang TC',

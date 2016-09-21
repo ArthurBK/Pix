@@ -23,8 +23,10 @@
 
   var { width, height } = Dimensions.get('window');
 
-  var REQUEST_URL = 'http://localhost:3000/api/v1/campaigns/confirmed_local_campaigns';
-  var REQUEST_URL2 = 'http://localhost:3000/api/v1/influencers/';
+  const REQUEST_URL = 'http://www.weflash.io/api/v1/campaigns/confirmed_local_campaigns';
+  const REQUEST_URL2 = 'http://www.weflash.io/api/v1/influencers/';
+  const MIN_FOLLOWERS = 300;
+
 
 
 
@@ -126,22 +128,22 @@
   console.log(d);
   // 50.806994
   // 4.371628099999953
-// this.state.dataSourceInfluencer.followers - 100 < 0
-  // if (this.state.dataSourceInfluencer.followers - 100 < 0)
-  // {
-  //   console.log(this.state.dataSourceInfluencer.followers - 100);
-  //   Alert.alert( '\uD83D\uDE4C You need more influencers \uD83D\uDE4C', '\uD83D\uDE4C You need more influencers \uD83D\uDE4C',
-  //   [ {text: 'Got it!'},])
-  // }
-  // else if (this.state.dataSource.rowIdentities.find.length > 0)
-  //  {
-  //    Alert.alert( '\uD83D\uDCF8 A photo hasn\'t been posted yet \uD83D\uDCF8', 'Swaps again when a photo has been posted',
-  //    [ {text: 'Got it!'},])
-  //  }
-   if (d > 200)
+//this.state.dataSourceInfluencer.followers - MIN_FOLLOWERS < 0
+  if (this.state.dataSourceInfluencer.followers - MIN_FOLLOWERS < 0)
+  {
+    // console.log(this.state.dataSourceInfluencer.followers - MIN_FOLLOWERS);
+    Alert.alert( '\uD83D\uDE4C Wow \uD83D\uDE4C', '\uD83D\uDE4C Il te faut plus de followers \uD83D\uDE4C',
+    [ {text: 'Got it!'},])
+  }
+  else if (this.state.dataSourceInfluencer.post_photo == true)
+   {
+     Alert.alert( '\uD83D\uDCF8 Tu as oublié le plus important \uD83D\uDCF8', 'Swap à nouveau quand tu auras posté ta photo',
+     [ {text: 'Got it!'},])
+   }
+  else if (d > 200)
   {
     Alert.alert( '\uD83D\uDCCD \u2796 \u2796 \u2796 \u2796 \uD83C\uDFC3',
-    'Swaps unlock once you get inside the venue',
+    'Rends toi sur place pour Swapper',
     [ {text: 'Got it!'},])
   }
   else
@@ -274,8 +276,7 @@
               </View>
   <View style={styles.buttonContainer}>
   <View></View>
-              <Button style={styles.profileButton}
-                >
+              <Button style={styles.profileButton}>
                 <TouchableHighlight
                   onPress={this.checkLocation.bind(this)}
                   style={styles.buttonHighlight}

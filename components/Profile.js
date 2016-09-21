@@ -1,12 +1,12 @@
 import React, { PropTypes, Component } from 'react';
-import {View, Text, StyleSheet, ScrollView,TouchableHighlight, Image, Dimensions} from "react-native";
+import {View, Text, StyleSheet, ScrollView,TouchableHighlight, Image, Dimensions, Alert} from "react-native";
 
 import Button from "react-native-button";
 import {Actions} from "react-native-router-flux";
 import CookieManager from 'react-native-cookies';
 import Icon from 'react-native-vector-icons/FontAwesome'
 
-var REQUEST_URL = 'http://localhost:3000/api/v1/influencers/';
+var REQUEST_URL = 'http://www.weflash.io/api/v1/influencers/';
 //need to change 31 dynamically
 var { width, height } = Dimensions.get('window');
 
@@ -54,7 +54,7 @@ export default class extends Component {
 
   //
   // postinfo () {
-  //   fetch('http://localhost:3000/api/v1/applications/3', {
+  //   fetch('http://www.weflash.io/api/v1/applications/3', {
   //     method: 'PATCH',
   //     headers: {
   //       'Accept': 'application/json',
@@ -69,8 +69,19 @@ export default class extends Component {
   //   })
   //
   // }
-
   logout () {
+  Alert.alert(
+  'Vous partez déjà?',
+  null,
+ [
+  {text: 'Je reste!'},
+  {text: 'Logout', onPress: () => this.dataout()}
+  ]
+)
+}
+
+  dataout () {
+
     CookieManager.clearAll((err, res) => {
       console.log(err);
       console.log(res);
@@ -79,7 +90,7 @@ export default class extends Component {
     this.setState({
       loggedIn: false,
     });
-    Actions.launch();
+    Actions.launch({type: 'reset'});
   }
 
   render(){
@@ -121,13 +132,13 @@ export default class extends Component {
              </Button>
           </View>
           <View style={styles.content}>
-          <Button style={styles.profileButton} onPress={Actions.profileInfo} >
+          <Button style={styles.profileButton} onPress={() => Actions.contactUs()} >
              <Text style={styles.buttonText}>Contact us</Text>
              <Text style={styles.buttonRightClick}>></Text>
              </Button>
           </View>
           <View style={styles.content}>
-          <Button style={styles.profileButton} onPress={this.logout.bind(this)} >
+          <Button style={styles.profileButton} onPress={() => this.logout()} >
              <Text style={styles.buttonText}>Logout</Text>
              <Text style={styles.buttonRightClick}>></Text>
              </Button>

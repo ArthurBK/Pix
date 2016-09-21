@@ -17,6 +17,8 @@ import EmailConfirmation from './components/EmailConfirmation'
 import Receipts from './components/Receipts'
 import ReceiptHashtags from './components/ReceiptHashtags'
 import Profile from './components/Profile'
+import ContactUs from './components/ContactUs'
+import LoadingPage from './components/LoadingPage'
 import Icon from 'react-native-vector-icons/FontAwesome'
 
 import Button from "react-native-button";
@@ -48,7 +50,7 @@ class Right extends React.Component {
     const reducerCreate = params=>{
       const defaultReducer = Reducer(params);
       return (state, action)=>{
-        console.log("ACTION:", action);
+        // console.log("ACTION:", action);
         return defaultReducer(state, action);
       }
     };
@@ -122,26 +124,30 @@ class Right extends React.Component {
         return <Router createReducer={reducerCreate} getSceneStyle={getSceneStyle} titleStyle={styles.navTitle}>
           <Scene key="modal" component={Modal} >
             <Scene key="root" hideNavBar hideTabBar>
-              <Scene key="profileInfo" component={ProfileInfo} title="ProfileInfo" duration={100}/>
               <Scene key="home" component={Home} title="Replace"  />
               <Scene key="launch" component={Launch} title="Launch" initial={true} />
               <Scene key="emailconfirmation" component={EmailConfirmation} />
-              <Scene key="login" hideNavBar={true}>
+              <Scene key="loadingPage" component={LoadingPage} />
+              <Scene key="login" hideNavBar={true} >
                 <Scene key="loginModal" component={Login} title="Login"/>
               </Scene>
-              <Scene key="tabbar" component={NavigationDrawer}  >
-                <Scene key="main" tabs={true} style={styles.navBar}>
+              <Scene key="tabbar" component={NavigationDrawer} >
+                <Scene key="main" tabs={true} style={styles.navBar} >
                   <Scene key="receipts_path" title={<Icon name="shopping-basket" size={30}/>} hideNavBar={true} icon={TabIcon} >
-                    <Scene key="receipts" initial={true} component={Receipts} />
+                    <Scene key="receipts" initial={true} component={Receipts} panHandlers={null}/>
                     <Scene key="receipt_hashtags" component={ReceiptHashtags}  hideTabBar={true}  direction="vertical" />
                   </Scene>
                   <Scene key="campaigns_path"  title={<Icon name="glass" size={30} />} initial={true} hideNavBar={true} icon={TabIcon}>
-                    <Scene key="campaigns" component={CampaignsList}  />
+                    <Scene key="campaigns" component={CampaignsList} panHandlers={null} />
                     <Scene key="campaign_detail" component={CampaignDetail} direction="vertical" hideTabBar={true} />
-                    <Scene key="campaign_swap" component={CampaignSwap} hideTabBar={true} />
-                    <Scene key="campaign_swap_confirmation" component={CampaignSwapConfirmation} hideTabBar={true} />
+                    <Scene key="campaign_swap" component={CampaignSwap} hideTabBar={true} panHandlers={null}/>
+                    <Scene key="campaign_swap_confirmation" component={CampaignSwapConfirmation} hideTabBar={true} panHandlers={null}/>
                   </Scene>
-                  <Scene key="profile" component={Profile} title={<Icon name="user" size={30}/>} hideNavBar={true} icon={TabIcon}/>
+                  <Scene key="profile_path" title={<Icon name="user" size={30}/>} hideNavBar={true} icon={TabIcon}>
+                    <Scene key="profile" component={Profile} initial={true} panHandlers={null}/>
+                    <Scene key="profileInfo" component={ProfileInfo} title="ProfileInfo" duration={100} hideTabBar={true} />
+                    <Scene key="contactUs" component={ContactUs} title="ContactUs" hideTabBar={true} />
+                  </Scene>
                 </Scene>
               </Scene>
             </Scene>

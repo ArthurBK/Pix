@@ -36,8 +36,8 @@
       postapplication()
       {
         // name = this.props.name
-        // http://www.localhost:3000/api/v1/applications
-        fetch('http://localhost:3000/api/v1/applications',
+        // http://www.www.weflash.io/api/v1/applications
+        fetch('http://www.weflash.io/api/v1/applications',
         {
           method: 'POST',
           headers:

@@ -16,7 +16,7 @@
 
     var { width, height } = Dimensions.get('window');
 
-    var REQUEST_URL = 'http://localhost:3000/api/v1/campaigns/locals_campaigns';
+    var REQUEST_URL = 'http://www.weflash.io/api/v1/campaigns/locals_campaigns';
 
     // var REQUEST_URL = 'http://picreward.herokuapp.com/api/v1/campaigns';
     const ASPECT_RATIO = width / height;
@@ -102,31 +102,17 @@
 
       };
 
-
-
-
-
-
-
       fetchData() {
-
-
         fetch(REQUEST_URL)
         .then((response) => response.json())
         .then((responseData) => {
-          // console.log(responseData);
-
           this.setState({
             dataSource: this.state.dataSource.cloneWithRows(responseData.campaigns.locals.sort(this.compare.bind(this))),
             markers: responseData.campaigns.locals,
             loaded: true,
           });
-          //  console.log(responseData);
         })
         .catch((error) =>{console.log(error)});
-        //  console.log(this.responseData);
-        // console.log(this.state.dataSource);
-
       }
 
       _onRefresh() {
@@ -143,16 +129,17 @@
         var nLongitude = this.state.dataSource.getRowData(0,rowID).coordinate_copy.longitude;
         var { region } = this.state;
 
-        this._mapview.animateToRegion({
+        this._mapview.animateToRegion(
           ...this.state.region,
           latitude: nLatitude,
           longitude: nLongitude,
-        })
-        this.setState({region:{
-          ...this.state.region,
-          latitude: nLatitude,
-          longitude: nLongitude
-        } })
+        )
+
+        // this.setState({region:{
+        //   ...this.state.region,
+        //   latitude: nLatitude,
+        //   longitude: nLongitude
+        // } })
       }
 
 
@@ -183,13 +170,14 @@
           ...this.state.region,
           latitude: nLatitude,
           longitude: nLongitude,
-        })
+        },
+      )
 
-        this.setState({region:{
-          ...this.state.region,
-          latitude: nLatitude,
-          longitude: nLongitude
-        } })
+        // this.setState({region:{
+        //   ...this.state.region,
+        //   latitude: nLatitude,
+        //   longitude: nLongitude
+        // } })
       }
 
       onRegionChange(region) {
@@ -204,7 +192,6 @@
             ref={(comp) => this._mapview = comp}
             style={styles.map}
             region={this.state.region}
-
             showsUserLocation={true}
             >
             {this.state.markers.map(marker => (
@@ -270,7 +257,7 @@
                 </View>
                 <View >
                   <Text style={styles.followersText}>
-                    350 followers
+                    300 followers
                   </Text>
                 </View>
               </View>

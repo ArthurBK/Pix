@@ -99,31 +99,9 @@ export default class extends Component {
             <View style={styles.mainContainer}>
             <View style={styles.container}>
             <View>
-            <Animated.View
-            style={[styles.messageImageView, {opacity: this.state.myButtonOpacity}]}
-            >
-            <View>
-            <Text style={styles.messageImageHeaderText}>
-            <Emoji name="heavy_check_mark"/>
-            </Text>
             </View>
-            <View>
-            <Text style={styles.messageImageText}>
-            Mis à jour
-            </Text>
-            </View>
-            </Animated.View>
-            </View>
-            <Text style={styles.textInfo}>{this.props.textLabel}</Text>
-            <TextInput
-            style={styles.textInput}
-            onChangeText={(text) => this.setState({text})}
-            value={this.state.text}
-            />
-
-            <Button
-            style={styles.updateButton}
-            onPress={this._updateProfileInfo.bind(this)}>Mettre à jour</Button>
+            <Text style={styles.textInfo}>Vous souhaitez nous écrire?</Text>
+            <Text style={styles.textInfo}>contact@weflash.io</Text>
             <Button
             style={styles.backButton}
             onPress={Actions.pop}>Retour</Button>

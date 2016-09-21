@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, TextInput, Dimensions, Animated } from 'react-native';
+import { View, Text, StyleSheet, TextInput, Dimensions, Animated, Alert } from 'react-native';
 import Button from 'react-native-button';
 import { Actions } from 'react-native-router-flux';
 import Emoji from "react-native-emoji";
 
-var REQUEST_URL = 'http://localhost:3000/api/v1/influencers/';
+var REQUEST_URL = 'http://www.weflash.io/api/v1/influencers/';
 
 export default class extends Component {
 
@@ -18,6 +18,10 @@ export default class extends Component {
     };
   }
 
+  validateEmail = (email) => {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(email);
+  };
 
 
 
@@ -27,40 +31,46 @@ export default class extends Component {
 
 
   async _updateProfileInfo(){
-    Animated.timing(  // Uses easing functions
-      this.state.myButtonOpacity,  // The value to drive
-      {toValue: 1}  // Configuration
-    ).start();
+    // Animated.timing(  // Uses easing functions
+    //   this.state.myButtonOpacity,  // The value to drive
+    //   {toValue: 1}  // Configuration
+    // ).start();
+    //
+    // // this.setState({myButtonOpacity: 0})
+    // // Clipboard.setString(this.props.campaign.title);
+    //
+    //
+    // this.timer = setTimeout(() => {
+    //   Animated.timing(  // Uses easing functions
+    //     this.state.myButtonOpacity,  // The value to drive
+    //     {toValue: 0}  // Configuration
+    //   ).start();
+    // }, 3000);
+    //
 
-    // this.setState({myButtonOpacity: 0})
-    // Clipboard.setString(this.props.campaign.title);
 
 
-    this.timer = setTimeout(() => {
-      Animated.timing(  // Uses easing functions
-        this.state.myButtonOpacity,  // The value to drive
-        {toValue: 0}  // Configuration
-      ).start();
-    }, 3000);
-
-
-        {
-          fetch('http://localhost:3000/api/v1/users', {
-            method: 'PATCH',
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(
-              { user:
-                { email: this.state.text,
-                }
-              })
+    if (!this.validateEmail(this.state.text)) {
+      Alert.alert( '\u2709 Oups! Email non valide \u2709',
+      '',
+      [ {text: 'Got it!'},])
+      // not a valid email
+    } else {
+        fetch('http://www.weflash.io/api/v1/users', {
+          method: 'PATCH',
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(
+            { user:
+              { email: this.state.text,
+              }
             })
-          }
+          })
+        Actions.tabbar();
 
-          Actions.tabbar();
-
-        }
+      }
+      }
 
 
         render () {

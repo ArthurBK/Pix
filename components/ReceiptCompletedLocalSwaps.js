@@ -13,10 +13,9 @@ var {
 
 import Button from "react-native-button";
 import {Actions} from "react-native-router-flux";
-import MapView from 'react-native-maps';
 import Icon from 'react-native-vector-icons/FontAwesome'
 
-var REQUEST_URL = 'http://localhost:3000/api/v1/campaigns/completed_local_campaigns';
+var REQUEST_URL = 'http://www.weflash.io/api/v1/campaigns/completed_local_campaigns';
 var { width, height } = Dimensions.get('window');
 
 
@@ -29,6 +28,7 @@ export default class extends  Component {
       dataSource: new ListView.DataSource({
         rowHasChanged: (row1, row2) => row1 !== row2,
       }),
+
       loaded: false,
       refreshing: false,
     };
@@ -53,7 +53,7 @@ export default class extends  Component {
     .then((responseData) => {
       // console.log(responseData);
       this.setState({
-        dataSource: this.state.dataSource.cloneWithRows(responseData.campaigns.completed_local_campaigns),
+        dataSource: this.state.dataSource.cloneWithRows(responseData.campaigns.confirmed_local_campaigns),
         campaigns: responseData.campaigns,
         loaded: true,
       });
@@ -68,20 +68,19 @@ export default class extends  Component {
 
   renderCampaign(campaign) {
     return (
-      <TouchableHighlight onPress={() => Actions.receipt_instructions({campaign})}
-        underlayColor='#dddddd'>
+
         <View style={styles.container}>
           <View style={styles.leftContainer}>
             <View style={styles.splitLeftContainer}>
               <View style={styles.iconCamera}>
-                <Icon name="camera" size={15} color='#2980B9'/>
+                <Icon name="check-circle-o" size={45} color='#2980B9'/>
               </View>
-              <View>
-                <Text style={styles.productText}>
-                  {campaign.product}
+              <View style={styles.textContainer}>
+                <Text style={styles.productText} >
+                  {campaign.title}
                 </Text>
                 <Text style={styles.followersText}>
-                  Post photo
+                  Photo postée
                 </Text>
               </View>
             </View>
@@ -93,7 +92,6 @@ export default class extends  Component {
               />
           </View>
         </View>
-      </TouchableHighlight>
     );
 
   }
@@ -126,7 +124,7 @@ export default class extends  Component {
       flexDirection: 'row',
       justifyContent: 'center',
       alignItems: 'center',
-      backgroundColor: 'white',
+      // backgroundColor: 'red',
       borderBottomColor:'#E2E2E2',
       borderBottomWidth: 0.5,
       borderTopColor:'#E2E2E2',
@@ -138,16 +136,17 @@ export default class extends  Component {
     thumbnail: {
       width: height/4,
       height: height/4,
-      backgroundColor: "#E2E2E2",
+      // backgroundColor: "blue",
       // borderRadius: 5,
     },
     listView: {
       marginBottom: 55,
+      // backgroundColor: 'blue'
     },
     welcome: {
       fontSize: 40,
       textAlign: 'center',
-      color: 'red',
+      // color: 'red',
       margin: 80,
     },
     leftContainer: {
@@ -155,10 +154,16 @@ export default class extends  Component {
       paddingTop: 20,
       paddingLeft: 20,
       // justifyContent: 'space-between',
-      // backgroundColor:'green',
-      height: height/4
+      backgroundColor:'white',
+      height: height/4,
+      // flexDirection: 'column',
+    // alignItems: 'center', //align items according to this parent (like setting self align on each item)
+    // justifyContent: 'center',
     },
-
+    textContainer:{
+      flexWrap: 'wrap',
+      flex: 1
+    },
     titleText: {
       fontFamily: 'PingFang TC',
       fontWeight: '800',
@@ -176,11 +181,15 @@ export default class extends  Component {
       fontFamily: 'PingFang TC',
       fontSize: 20,
       color: '#606060',
+      // flexWrap: 'wrap',
     },
     splitLeftContainer:{
       // backgroundColor: 'yellow',
       flex: 1,
-      flexDirection: 'row'
+      flexDirection: 'row',
+      // flexWrap: 'wrap',
+
+
     },
 iconCamera: {
 paddingTop: 8,
