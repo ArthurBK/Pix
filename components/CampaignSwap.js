@@ -64,7 +64,7 @@
             <View style={styles.buttonContainer}>
               <View style={styles.viewSeparator}>
                   <Text style={styles.titleText}>
-                    Bar Side
+                    Partie Bartender
                   </Text>
               </View>
               <View style={styles.clickButton}>
@@ -73,7 +73,7 @@
                       onPress={this.postapplication.bind(this)}
                       style={styles.buttonHighlight}>
                       <Text style={styles.buttonText}>
-                      Click Here
+                      Clickez pour confirmer l{"\'"}offre
                       </Text>
                     </TouchableHighlight>
                   </Button>
@@ -99,7 +99,7 @@
                 </View>
                 <View >
                   <Text style={styles.descriptionText}>
-                    Reach out phone to Bartender
+                    Montre le téléphone au Bartender
                   </Text>
                 </View>
               </View>
@@ -109,7 +109,7 @@
                     onPress={Actions.pop}
                     style={styles.buttonHighlight}
                     >
-                    <Text style={styles.buttonText}>CANCEL</Text>
+                    <Text style={styles.buttonText}>RETOUR</Text>
                   </TouchableHighlight>
                 </Button>
               </View>

@@ -33,7 +33,12 @@ class Launch extends  Component {
            </View>
         <View style={styles.lowerContainer}>
         <View style={styles.loginButton}>
-        <Button onPress={()=>Actions.login({data:"Custom data", title:"Custom title" })} style={styles.loginTextButton}><Icon name="instagram" size={35} color='white'/> Se connecter avec Instagram</Button>
+        <Button
+        onPress={()=>Actions.login({data:"Custom data", title:"Custom title" })}
+        style={styles.loginTextButton}>
+        <Icon name="instagram" size={35} color='white'/>
+        Se connecter avec Instagram
+        </Button>
         </View>
         </View>
 

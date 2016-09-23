@@ -53,7 +53,7 @@ export default class extends  Component {
     .then((responseData) => {
       // console.log(responseData);
       this.setState({
-        dataSource: this.state.dataSource.cloneWithRows(responseData.campaigns.confirmed_local_campaigns),
+        dataSource: this.state.dataSource.cloneWithRows(responseData.campaigns.completed_local_campaigns),
         campaigns: responseData.campaigns,
         loaded: true,
       });

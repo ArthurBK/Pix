@@ -81,7 +81,7 @@ export default class extends  Component {
                   {campaign.product}
                 </Text>
                 <Text style={styles.followersText}>
-                  Post photo
+                  Poste une photo
                 </Text>
               </View>
             </View>

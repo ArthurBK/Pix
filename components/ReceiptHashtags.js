@@ -99,12 +99,12 @@ myButtonOpacity: new Animated.Value(0),
                 <View style={styles.boxImageView}>
                   <View>
                     <Text style={styles.boxImageHeaderText}>
-                      POST PHOTO
+                      POSTE UNE PHOTO
                     </Text>
                   </View>
                   <View>
                     <Text style={styles.boxImageText}>
-                      Post photo to keep swapping
+                      pour swapper à nouveau
                     </Text>
                   </View>
                 </View>
@@ -121,7 +121,7 @@ style={[styles.messageImageView, {opacity: this.state.myButtonOpacity}]}
                   </View>
                   <View>
                     <Text style={styles.messageImageText}>
-                      Copied
+                      Copiés
                     </Text>
                   </View>
                 </Animated.View>
@@ -146,17 +146,17 @@ style={[styles.messageImageView, {opacity: this.state.myButtonOpacity}]}
               </View>
               <View style={styles.inlineContainer}>
                 <View style={{paddingLeft:20, width: width/2}}>
-                  <Text style={styles.descriptionTextBold}>
-                    Swapped:
-                  </Text>
+                <Text style={styles.descriptionTextBold}>
+                  Hashtags:
+                </Text>
+                <Text style={styles.descriptionText}>
+                  @weflash_app, @{this.props.campaign.iger_account}
+                </Text>
                 </View>
                 <View style={{width: width/2, paddingRight:20}}>
-                  <Text style={styles.descriptionTextBold}>
-                    Hashtags:
-                  </Text>
-                  <Text style={styles.descriptionText}>
-                    @weflash_app, @{this.props.campaign.iger_account}
-                  </Text>
+                <Text style={styles.descriptionTextBold}>
+                </Text>
+
                 </View>
               </View>
             </View>
@@ -171,7 +171,7 @@ style={[styles.messageImageView, {opacity: this.state.myButtonOpacity}]}
                   onPress={this._setClipboardContent.bind(this)}
                   style={styles.buttonHighlight}
                   >
-                  <Text style={styles.buttonText}>Copy Hashtags #</Text>
+                  <Text style={styles.buttonText}>Copier les Hashtags #</Text>
                 </TouchableHighlight>
               </Button>
             </View>

@@ -125,11 +125,12 @@
             d = Math.sqrt((dx * dx) + (dy * dy))
 
             d = Math.round(d * 1000)
-  console.log(d);
+  // console.log(d);
   // 50.806994
   // 4.371628099999953
-//this.state.dataSourceInfluencer.followers - MIN_FOLLOWERS < 0
-  if (this.state.dataSourceInfluencer.followers - MIN_FOLLOWERS < 0)
+console.log(this.state.dataSourceInfluencer.followers)
+  if (this.state.dataSourceInfluencer.followers - MIN_FOLLOWERS < 0
+  || this.state.dataSourceInfluencer.followers == undefined)
   {
     // console.log(this.state.dataSourceInfluencer.followers - MIN_FOLLOWERS);
     Alert.alert( '\uD83D\uDE4C Wow \uD83D\uDE4C', '\uD83D\uDE4C Il te faut plus de followers \uD83D\uDE4C',
@@ -154,59 +155,59 @@
 
 
 
-        componentWillMount() {
-          this._previousLeft = 0;
-          this._containerStyles = {
-            style: {
-              left: this._previousLeft,
-            }
-          };
-          this._panResponder = PanResponder.create({
-
-            onStartShouldSetPanResponder: (evt, gestureState) => true,
-            onStartShouldSetPanResponderCapture: (evt, gestureState) => true,
-            onMoveShouldSetPanResponder: (evt, gestureState) => true,
-            onMoveShouldSetPanResponderCapture: (evt, gestureState) => true,
-
-            onPanResponderMove: (e, gestureState) => {
-
-              if (gestureState.dx > 50) {
-                if (Math.abs(gestureState.dx) > Math.abs(gestureState.dy)) {
-                  // Actions.pop();
-                }
-
-                //  console.log(gestureState.dx);
-              } else if (gestureState.dx > 0) {
-                // this._containerStyles.style.left = this._previousLeft + gestureState.dx;
-                // this._updateNativeStyles();
-
-
-              }
-              navigator.geolocation.clearWatch(this.watchID);
-
-            },
-
-            // Claim responder if it's a horizontal pan
-            // onMoveShouldSetPanResponder: (e, gestureState) => {
-            //   // console.log(gestureState.dx);
-            //   if (Math.abs(gestureState.dx) > Math.abs(gestureState.dy)) {
-            //     return true;
-            //   }
-            // },
-
-            onPanResponderRelease: (e, gestureState) => {
-              // console.log(gestureState)
-              this._previousLeft += gestureState.dx;
-  // not working..
-              // Actions.pop();
-              // Actions.tab3_2({campaign}) ;
-       }
-
-          })
-
-
-
-        }
+  //       componentWillMount() {
+  //         this._previousLeft = 0;
+  //         this._containerStyles = {
+  //           style: {
+  //             left: this._previousLeft,
+  //           }
+  //         };
+  //         this._panResponder = PanResponder.create({
+  //
+  //           onStartShouldSetPanResponder: (evt, gestureState) => true,
+  //           onStartShouldSetPanResponderCapture: (evt, gestureState) => true,
+  //           onMoveShouldSetPanResponder: (evt, gestureState) => true,
+  //           onMoveShouldSetPanResponderCapture: (evt, gestureState) => true,
+  //
+  //           onPanResponderMove: (e, gestureState) => {
+  //
+  //             if (gestureState.dx > 50) {
+  //               if (Math.abs(gestureState.dx) > Math.abs(gestureState.dy)) {
+  //                 // Actions.pop();
+  //               }
+  //
+  //               //  console.log(gestureState.dx);
+  //             } else if (gestureState.dx > 0) {
+  //               // this._containerStyles.style.left = this._previousLeft + gestureState.dx;
+  //               // this._updateNativeStyles();
+  //
+  //
+  //             }
+  //             navigator.geolocation.clearWatch(this.watchID);
+  //
+  //           },
+  //
+  //           // Claim responder if it's a horizontal pan
+  //           // onMoveShouldSetPanResponder: (e, gestureState) => {
+  //           //   // console.log(gestureState.dx);
+  //           //   if (Math.abs(gestureState.dx) > Math.abs(gestureState.dy)) {
+  //           //     return true;
+  //           //   }
+  //           // },
+  //
+  //           onPanResponderRelease: (e, gestureState) => {
+  //             // console.log(gestureState)
+  //             this._previousLeft += gestureState.dx;
+  // // not working..
+  //             // Actions.pop();
+  //             // Actions.tab3_2({campaign}) ;
+  //      }
+  //
+  //         })
+  //
+  //
+  //
+  //       }
 
   componentDidMount(){
     this.fetchData();
@@ -234,7 +235,7 @@
 
 
         _updateNativeStyles() {
-          this.container && this.container.setNativeProps(this._containerStyles);
+          // this.container && this.container.setNativeProps(this._containerStyles);
         }
 
 
@@ -247,10 +248,7 @@
 
               >
               <View
-                ref={(container) => {
-                  this.container = container;
-                }}
-                {...this._panResponder.panHandlers}
+
                 >
 
                 <Image

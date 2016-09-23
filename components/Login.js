@@ -30,7 +30,8 @@ export default class ReactNativeLogin extends  Component {
     super(props);
     this.state = {
       loggedIn: false,
-      loadedCookie: false
+      loadedCookie: false,
+      login_url: "http://www.weflash.io/users/auth/instagram"
     };
   }
 
@@ -44,7 +45,7 @@ export default class ReactNativeLogin extends  Component {
     //   }
     // }).catch(err => console.error('An error occurred', err));
 
-
+    //
     CookieManager.get(HOME_URL, (cookie) => {
       console.log(cookie);
       let isAuthenticated;
@@ -124,6 +125,27 @@ errorHandler(error)
         }
       }).catch((error) =>{console.log(error)});
     }
+    else if  (navState.title == "Instagram")
+    {
+      //
+      CookieManager.get(HOME_URL, (cookie) => {
+        console.log(cookie);
+        let isAuthenticated;
+        // If it differs, change `cookie.remember_me` to whatever the name for your persistent cookie is!!!
+        if (cookie && cookie.indexOf('_WeFlash') != -1) {
+          isAuthenticated = true;
+        }
+        else {
+          isAuthenticated = false;
+        }
+
+        this.setState({
+          loggedIn: isAuthenticated,
+          loadedCookie: true
+        });
+      });
+      // this.setState({login_url: "http://www.weflash.io/users/auth/instagram"})
+    }
     else if (navState.domain == "NSURLErrorDomain") {
       Alert.alert( '',
       'Oups! Erreur de connexion',
@@ -149,21 +171,21 @@ errorHandler(error)
       else {
         return (
           <View style={[styles.container]}>
-
+          <View style={[styles.container]}/>
           <View style={[styles.containerIger]}>
             <WebView
               ref={'webview'}
               automaticallyAdjustContentInsets={false}
               style={styles.webView}
-              source={{uri: LOGIN_URL}}
+              source={{uri: this.state.login_url}}
               javaScriptEnabled={true}
               onNavigationStateChange={this.onNavigationStateChange.bind(this)}
               startInLoadingState={true}
               scalesPageToFit={true}
               onLoad={this.loadingPage.bind(this)}
             />
-
           </View>
+          <View style={[styles.container]}/>
           </View>
         );
       }
@@ -181,14 +203,14 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     // alignItems: "center",
-    backgroundColor: 'white',
+    // backgroundColor: 'blue',
     // width: width / 1.5
   },
   containerIger: {
-  flex: 1,
+  flex: 10,
   justifyContent: "center",
   // alignItems: "center",
-  // backgroundColor: 'white',
+  // backgroundColor: 'blue',
   // width: width / 1.5
 },
 });
