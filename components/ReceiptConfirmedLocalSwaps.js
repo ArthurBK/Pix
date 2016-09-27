@@ -81,7 +81,7 @@ export default class extends  Component {
                   {campaign.product}
                 </Text>
                 <Text style={styles.followersText}>
-                  Poste une photo
+                  Poste une photo avec les hashtags
                 </Text>
               </View>
             </View>
@@ -164,7 +164,8 @@ export default class extends  Component {
     },
     textContainer:{
       flexWrap: 'wrap',
-      flex: 1
+      flex: 1,
+      // justifyContent: 'space'
     },
     titleText: {
       fontFamily: 'PingFang TC',
@@ -175,6 +176,7 @@ export default class extends  Component {
     followersText: {
       // fontFamily: 'PingFang TC',
       // fontWeight: '800',
+      paddingTop: 20,
       fontSize: 18,
       color: '#2980B9',
       fontStyle: 'italic'

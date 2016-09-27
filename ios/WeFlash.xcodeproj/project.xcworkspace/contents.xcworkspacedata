@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:/Users/arthur/Desktop/WeFlash/ios/WeFlash.xcodeproj">
+      location = "absolute:/Users/arthur/Desktop/WeFlash/ios/WeFlash.xcodeproj">
    </FileRef>
 </Workspace>

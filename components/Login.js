@@ -128,22 +128,9 @@ errorHandler(error)
     else if  (navState.title == "Instagram")
     {
       //
-      CookieManager.get(HOME_URL, (cookie) => {
-        console.log(cookie);
-        let isAuthenticated;
-        // If it differs, change `cookie.remember_me` to whatever the name for your persistent cookie is!!!
-        if (cookie && cookie.indexOf('_WeFlash') != -1) {
-          isAuthenticated = true;
-        }
-        else {
-          isAuthenticated = false;
-        }
+    Actions.login();
 
-        this.setState({
-          loggedIn: isAuthenticated,
-          loadedCookie: true
-        });
-      });
+    
       // this.setState({login_url: "http://www.weflash.io/users/auth/instagram"})
     }
     else if (navState.domain == "NSURLErrorDomain") {

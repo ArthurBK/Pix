@@ -138,13 +138,13 @@ console.log(this.state.dataSourceInfluencer.followers)
   }
   else if (this.state.dataSourceInfluencer.post_photo == true)
    {
-     Alert.alert( '\uD83D\uDCF8 Tu as oublié le plus important \uD83D\uDCF8', 'Swap à nouveau quand tu auras posté ta photo',
+     Alert.alert( '\uD83D\uDCF8 Tu as oublié le plus important \uD83D\uDCF8', 'il faut que tu postes ta photo',
      [ {text: 'Got it!'},])
    }
   else if (d > 200)
   {
     Alert.alert( '\uD83D\uDCCD \u2796 \u2796 \u2796 \u2796 \uD83C\uDFC3',
-    'Rends toi sur place pour Swapper',
+    'Rends toi sur place pour profiter de l\'offre',
     [ {text: 'Got it!'},])
   }
   else
@@ -279,7 +279,7 @@ console.log(this.state.dataSourceInfluencer.followers)
                   onPress={this.checkLocation.bind(this)}
                   style={styles.buttonHighlight}
                   >
-                  <Text style={styles.buttonText}>SWAP</Text>
+                  <Text style={styles.buttonText}>Profiter de l{"\'"}offre</Text>
                 </TouchableHighlight>
               </Button>
   </View>

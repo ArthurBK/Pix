@@ -104,7 +104,7 @@ myButtonOpacity: new Animated.Value(0),
                   </View>
                   <View>
                     <Text style={styles.boxImageText}>
-                      pour swapper à nouveau
+                      sur Instagram
                     </Text>
                   </View>
                 </View>
