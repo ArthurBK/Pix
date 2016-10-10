@@ -188,7 +188,7 @@
       },
       viewSeparator:{
         backgroundColor: 'transparent',
-        borderTopWidth: 10,
+        borderTopWidth: 2,
         borderTopColor: '#2980B9',
         paddingTop:30,
       },

@@ -1,11 +1,20 @@
 import React, { Component } from 'react';
-import {AppRegistry, Navigator, StyleSheet, Text, View} from 'react-native'
+import {AppRegistry, Navigator, StyleSheet, Text, View, Linking} from 'react-native'
 import Launch from './components/Launch'
 import ProfileInfo from './components/ProfileInfo'
 import Login from './components/Login'
 // import Login2 from './components/Login2'
 // import Login3 from './components/Login3'
-import {Scene, Reducer, Router, Switch, TabBar, Modal, Schema, Actions} from 'react-native-router-flux'
+import {
+  Scene,
+  Reducer,
+  Router,
+  Switch,
+  TabBar,
+  Modal,
+  Schema,
+  Actions
+        } from 'react-native-router-flux'
 import Error from './components/Error'
 import Home from './components/Home'
 import NavigationDrawer from './components/NavigationDrawer'
@@ -19,9 +28,12 @@ import ReceiptHashtags from './components/ReceiptHashtags'
 import Profile from './components/Profile'
 import ContactUs from './components/ContactUs'
 import LoadingPage from './components/LoadingPage'
+import IndexNonLogged from './components/IndexNonLogged'
 import Icon from 'react-native-vector-icons/FontAwesome'
+import crossroads from 'crossroads';
 
 import Button from "react-native-button";
+
 
 class TabIcon extends React.Component {
   render(){
@@ -45,6 +57,7 @@ class Right extends React.Component {
       }}>Right</Text>
     }
   }
+
 
 
     const reducerCreate = params=>{
@@ -120,6 +133,34 @@ class Right extends React.Component {
     };
 
     export default class Example extends React.Component {
+
+
+
+      componentDidMount() {
+        Linking.addEventListener('url', this.handleOpenURL);
+        // crossroads.routed.add(console.log, console); //log all routes
+        // crossroads.addRoute('/{foo}/{bar}', function(vals){
+            //can access captured values as Array items
+            // console.log("vals[0] +' - '+ vals[1]");
+            // console.log(vals[0] +' - '+ vals[1]);
+        // });
+    // crossroads.addRoute('campaigns', Actions.campaigns);
+    // crossroads.routed.add(console.log, console); //log all routes
+      }
+
+      componentWillUnmount() {
+        Linking.removeEventListener('url', this.handleOpenURL);
+      }
+      handleOpenURL(event) {
+        if (event.url && event.url.indexOf('weflash://') === 0) {
+      // remove "test://" and try to match
+      if (event.url.slice(10) == 'campaigns')
+      {
+        Actions.tabbar();
+      }
+      // crossroads.parse(event.url.slice(10));
+    }
+    }
       render() {
         return <Router createReducer={reducerCreate} getSceneStyle={getSceneStyle} titleStyle={styles.navTitle}>
           <Scene key="modal" component={Modal} >
@@ -130,6 +171,11 @@ class Right extends React.Component {
               <Scene key="loadingPage" component={LoadingPage} />
               <Scene key="login" hideNavBar={true} >
                 <Scene key="loginModal" component={Login} title="Login"/>
+              </Scene>
+              <Scene key="tabbar2" component={NavigationDrawer} >
+              <Scene key="main2" tabs={true} style={styles.navBar} >
+              <Scene key="index_non_logged"  title={<Icon name="glass" size={30} />} component={IndexNonLogged} initial={true} hideNavBar={true} icon={TabIcon} />
+              </Scene>
               </Scene>
               <Scene key="tabbar" component={NavigationDrawer} >
                 <Scene key="main" tabs={true} style={styles.navBar} >
@@ -156,6 +202,7 @@ class Right extends React.Component {
         </Router>;
       }
     }
+
 
 
 

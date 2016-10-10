@@ -7,6 +7,7 @@ const propTypes = {
 };
 
 class NavigationDrawer extends  Component {
+
   render() {
     const state = this.props.navigationState;
     const children = state.children;

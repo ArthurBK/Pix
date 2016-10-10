@@ -64,7 +64,7 @@ myButtonOpacity: new Animated.Value(0),
 
 // this.setState({myButtonOpacity: 0})
 
-  Clipboard.setString("@weflash_app, @" + this.props.campaign.iger_account);
+  Clipboard.setString("#weflash_app, #" + this.props.campaign.iger_account);
 
 
   this.timer = setTimeout(() => {
@@ -150,7 +150,7 @@ style={[styles.messageImageView, {opacity: this.state.myButtonOpacity}]}
                   Hashtags:
                 </Text>
                 <Text style={styles.descriptionText}>
-                  @weflash_app, @{this.props.campaign.iger_account}
+                  #weflash_app, #{this.props.campaign.iger_account}
                 </Text>
                 </View>
                 <View style={{width: width/2, paddingRight:20}}>

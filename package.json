@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "clamp": "^1.0.1",
+    "crossroads": "^0.12.2",
     "react": "~15.2.0",
     "react-native": "^0.30.0",
     "react-native-animatable": "^0.6.1",

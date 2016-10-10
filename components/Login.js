@@ -36,7 +36,7 @@ export default class ReactNativeLogin extends  Component {
   }
 
   componentWillMount () {
-    //
+
     // Linking.canOpenURL(LOGIN_URL).then(supported => {
     //   if (!supported) {
     //     console.log('Can\'t handle url: ' + LOGIN_URL);
@@ -63,21 +63,24 @@ export default class ReactNativeLogin extends  Component {
       });
     });
   }
+
+  componentDidMount() {
+    Linking.addEventListener('url', this._handleOpenURL);
+  }
+
+  componentWillUnmount() {
+    Linking.removeEventListener('url', this._handleOpenURL);
+  }
   //
-  // componentDidMount() {
-  //   Linking.addEventListener('url', this._handleOpenURL);
-  // }
-  //
-  // componentWillUnmount() {
-  //   Linking.removeEventListener('url', this._handleOpenURL);
-  // }
-  //
-  // _handleOpenURL(event) {
+  _handleOpenURL(event) {
   //   if (event.url == HOME_URL) {
   //     this.setState({
   //       loggedIn: true,
   //     });
+  // if (event.url && event.url.indexOf('weflash://') === 0) {
   //
+  //   if (event.url.slice(10) == 'campaigns')
+  //   {
   //     fetch(REQUEST_URL)
   //     .then((response) => response.json())
   //     .then((responseData) => {
@@ -95,7 +98,7 @@ export default class ReactNativeLogin extends  Component {
   //   console.log(event.url);
   //
   // }
-
+}
 
 
 
@@ -130,7 +133,7 @@ errorHandler(error)
       //
     Actions.login();
 
-    
+
       // this.setState({login_url: "http://www.weflash.io/users/auth/instagram"})
     }
     else if (navState.domain == "NSURLErrorDomain") {

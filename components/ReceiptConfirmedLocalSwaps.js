@@ -81,7 +81,7 @@ export default class extends  Component {
                   {campaign.product}
                 </Text>
                 <Text style={styles.followersText}>
-                  Poste une photo avec les hashtags
+                  Publie une photo avec les hashtags
                 </Text>
               </View>
             </View>
