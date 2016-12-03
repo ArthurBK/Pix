@@ -154,8 +154,8 @@ errorHandler(error)
     if (this.state.loadedCookie) {
       if (this.state.loggedIn) {
         return (
-<View>
-</View>
+          <View>
+          </View>
         );
       }
       else {

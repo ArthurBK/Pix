@@ -64,7 +64,7 @@ myButtonOpacity: new Animated.Value(0),
 
 // this.setState({myButtonOpacity: 0})
 
-  Clipboard.setString("#weflash_app, #" + this.props.campaign.hashtag + "@weflash_app, @" + this.props.campaign.iger_account);
+  Clipboard.setString("#weflash_app #" + this.props.campaign.hashtag + " @weflash_app @" + this.props.campaign.iger_account);
 
 
   this.timer = setTimeout(() => {

@@ -251,9 +251,11 @@
                 <Text style={styles.titleText}>
                 {campaign.title}
                 </Text>
-                  <Text style={styles.productText}>
+                <View style={styles.wrapProduct}>
+                  <Text style={styles.productText} blab bla blabla blab bla>
                     {campaign.product}
                   </Text>
+                </View>
                 </View>
                 <View >
                   <Text style={styles.followersText}>
@@ -325,14 +327,15 @@
         margin: 80,
       },
       bottomContainer: {
-        // flex: 1,
+        flex: 1,
         flexDirection:'row',
         backgroundColor:'white',
         width: width,
         height: height*(1/8),
         justifyContent: 'space-between',
         borderBottomWidth: 1,
-        borderBottomColor: '#fbfbfb'
+        borderBottomColor: '#fbfbfb',
+        flexWrap: 'wrap'
       },
       padding: {
         padding: 10,
@@ -344,8 +347,8 @@
       titleText: {
         fontFamily: 'PingFang TC',
         fontWeight: '800',
-        fontSize: 26,
-        color: '#2980B9',
+        fontSize: 23,
+        color: '#606060',
       },
       followersText: {
         fontFamily: 'PingFang TC',
@@ -357,18 +360,20 @@
       },
       productText: {
         fontFamily: 'PingFang TC',
-        fontSize: 19,
-        color: '#606060',
+        fontSize: 18,
+        color: '#2980B9',
+        width: width,
         // paddingTop: 6,
         // paddingLeft: 4
 
       },
       leftSideText: {
+        flex: 1,
         paddingLeft: 10,
         paddingTop: 10,
       },
-  emptyFooter:{
-  height: height/10
+        emptyFooter:{
+        height: height/10
   }
 
     });

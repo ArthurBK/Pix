@@ -129,8 +129,13 @@
   // 50.806994
   // 4.371628099999953
 console.log(this.state.dataSourceInfluencer.followers)
-  if (this.state.dataSourceInfluencer.followers - MIN_FOLLOWERS < 0
-  || this.state.dataSourceInfluencer.followers == undefined)
+if (this.state.dataSourceInfluencer.followers == undefined)
+{
+  // console.log(this.state.dataSourceInfluencer.followers - MIN_FOLLOWERS);
+  Alert.alert( '\uD83D\uDE4C Wow \uD83D\uDE4C', '\uD83D\uDE4C Oups! Erreur de connexion \uD83D\uDE4C',
+  [ {text: 'Got it!'},])
+}
+else if (this.state.dataSourceInfluencer.followers - MIN_FOLLOWERS < 0)
   {
     // console.log(this.state.dataSourceInfluencer.followers - MIN_FOLLOWERS);
     Alert.alert( '\uD83D\uDE4C Wow \uD83D\uDE4C', '\uD83D\uDE4C Il te faut plus de followers \uD83D\uDE4C',
@@ -344,7 +349,7 @@ console.log(this.state.dataSourceInfluencer.followers)
         titleText: {
           fontFamily: 'PingFang TC',
           fontWeight: '900',
-          fontSize: 34,
+          fontSize: 30,
           color: '#2980B9',
           marginLeft: 10,
           marginTop: 10,
@@ -357,13 +362,13 @@ console.log(this.state.dataSourceInfluencer.followers)
         },
         productText: {
           fontFamily: 'PingFang TC',
-          fontSize: 24,
+          fontSize: 22,
           color: '#001929',
           marginLeft: 10
         },
         descriptionText: {
           fontFamily: 'PingFang TC',
-          fontSize: 20,
+          fontSize: 18,
           color: '#606060',
           marginLeft: 10
         },
