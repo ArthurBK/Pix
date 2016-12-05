@@ -146,7 +146,7 @@ else if (this.state.dataSourceInfluencer.followers - MIN_FOLLOWERS < 0)
      Alert.alert( '\uD83D\uDCF8 Tu as oublié le plus important \uD83D\uDCF8', 'il faut que tu postes ta photo',
      [ {text: 'Got it!'},])
    }
-  else if (d > 200)
+  else if (d > 400)
   {
     Alert.alert( '\uD83D\uDCCD \u2796 \u2796 \u2796 \u2796 \uD83C\uDFC3',
     'Rends toi sur place pour profiter de l\'offre',

@@ -64,7 +64,7 @@
             <View style={styles.buttonContainer}>
               <View style={styles.viewSeparator}>
                   <Text style={styles.titleText}>
-                    Partie Bartender
+                    Partie Serveur
                   </Text>
               </View>
               <View style={styles.clickButton}>
@@ -99,7 +99,7 @@
                 </View>
                 <View >
                   <Text style={styles.descriptionText}>
-                    Montre le téléphone au Bartender
+                    Montre le téléphone au Serveur
                   </Text>
                 </View>
               </View>
